@@ -18,7 +18,7 @@ namespace EFC_AddCustomer.Data
             modelBuilder.Entity<Item>()
                 .HasOne<CustomerName>(i => i.CustomerName)
                 .WithMany(c => c.Items)
-                .HasForeignKey(i => i.CustomerName)
+                .HasForeignKey(i => i.CustomerId)
                 .IsRequired();
         }
     }
