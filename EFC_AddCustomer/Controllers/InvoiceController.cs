@@ -2,6 +2,7 @@
 using EFC_AddCustomer.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
 namespace EFC_AddCustomer.Controllers
 {
@@ -15,6 +16,7 @@ namespace EFC_AddCustomer.Controllers
         }
         public IActionResult Index()
         {
+            
             var customerWithItems = _db.CustomerNames.Include(c => c.Items).ToList();
             return View(customerWithItems);
         }
