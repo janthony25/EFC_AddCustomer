@@ -20,5 +20,15 @@ namespace EFC_AddCustomer.Controllers
             var customerWithItems = _db.CustomerNames.Include(c => c.Items).ToList();
             return View(customerWithItems);
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        public IActionResult Create()
+        {
+
+        }
     }
 }
