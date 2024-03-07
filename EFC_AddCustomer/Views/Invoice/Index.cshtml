@@ -1,13 +1,64 @@
-﻿<h1>Customers and their Items</h1>
+﻿@model List<CustomerName>
 
-@foreach (var customer in Model)
+
+
+@* @foreach (var customer in Model)
 {
     <h2>@customer.Name</h2>
     <ul>
         @foreach (var item in customer.Items)
         {
-            <li>@item.Name</li>
-            <!-- Add other item details as needed -->
+            <li>@item.ItemName - @item.ItemPrice</li>
         }
     </ul>
-}
+} *@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-6">
+            <h1>Customers and their Items</h1>
+        </div>
+        <div class="col-6 text-end">
+            <a class="btn btn-primary">Add Customer</a>
+        </div>
+    </div>
+   
+    
+
+
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                Customer Name
+            </th>
+            <th>
+                Item
+            </th>
+            <th>
+                Item Price
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var customer in Model)
+        {
+            <tr>
+                <td>
+                    @customer.Name
+                </td>
+                @foreach(var item in customer.Items)
+                {
+                    <td>
+                        @item.ItemName
+                    </td>
+                    <td>
+                        @item.ItemPrice
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+
+</div>
